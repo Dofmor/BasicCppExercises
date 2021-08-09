@@ -48,6 +48,23 @@ void emptyVector(std::vector<int>& num){
     std::cout << "Vector is now empty\n";
 }
 
+int linearSearch(const std::vector<int>& num, int value){
+    int index = 0, position = -1;
+    bool found = false;
+
+    while (found == false){
+        if (num[index] == value){
+            position = index;
+            found = true;
+        }
+        else
+            index ++;
+    }
+
+
+    return position;
+}
+
 int main() {
     std::vector<int> numbers;
     std::string fileName;
@@ -57,8 +74,12 @@ int main() {
 
     readFile(fileName, numbers);
     printVector(numbers);
-    emptyVector(numbers);
-    printVector(numbers);
+
+    std::cout << "Search for a number\n";
+
+    int value;
+    std::cin >> value;
+    std::cout << linearSearch(numbers, value) << "\n";
 
     std::cout << "Goodbye\n";
 
